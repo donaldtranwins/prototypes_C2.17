@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //Feature Set 1
+        var x;
+        x = null;
+        var y;
+        var z;
+        z = "any string";
+
+        //Feature Set 2
+        var output1;
+        var output2;
+        var output3;
+        output1 = x == y;
+        output2 = x == z;
+        output3 = y == z;
+
+        console.log("output1 = " + output1 + " (falsey + falsey) [null + declaration]");
+        console.log("output2 = " + output2 + " (falsey + truthy) [null + string]");
+        console.log("output3 = " + output3 + " (falsey + truthy) [declaration + string]");
+
+        //Feature Set 3
+        var output4;
+        var output5;
+        var output6;
+
+        output4 = typeof null; //according to W3, 'typeof null' incorrectly displays as "object" when it should be "null"
+        output5 = typeof undeclared;
+        output6 = typeof "";
+
+        console.log("typeof output4 = " + output4 + " (null)");
+        console.log("typeof output5 = " + output5 + " (undeclared undefined)");
+        console.log("typeof output6 = " + output6 + " (string)");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
