@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        //Feature Set 1
+        var mySmallNumber = 5;
+        var myString = "5";
+        var myBigNumber = 255;
+
+        //Feature Set 2
+        var output1 = mySmallNumber == myString;
+        var output2 = mySmallNumber === myString;
+        var output3 = mySmallNumber < myBigNumber;
+        var output4 = mySmallNumber > myBigNumber;
+        console.log("fs2 output1 = "+output1);
+        console.log("fs2 output2 = "+output2);
+        console.log("fs2 output3 = "+output3);
+        console.log("fs2 output4 = "+output4);
+
+        //Feature Set 3
+        var gameNumber = 64;
+        var userInput1 = 54;
+        var userInput2 = 64;
+
+        //Feature Set 4
+        if (userInput1 > gameNumber){
+            console.log("fs4 the number is too HIGH");
+        }
+        if (userInput1 < gameNumber){
+            console.log("fs4 the number is too LOW");
+        }
+        if (userInput1 < 1 || userInput1 > 100){
+            console.log("fs4 the number is out of range");
+        } else {
+            console.log("fs4 the number is in range");
+        }
+        if (userInput2 === gameNumber){
+            console.log("fs4 the correct number has been guessed");
+        } else {
+            console.log("fs4 try again");
+        }
+
+        //Feature Set 5
+        switch(userInput1){
+            case (gameNumber):
+                console.log("You found the correct number!");
+                break;
+            case (gameNumber-10):
+                console.log("Too low, but warm");
+                break;
+            case (gameNumber+10):
+                console.log("Too high, but warm");
+                break;
+            case (gameNumber-25):
+                console.log("Too low, way cold");
+                break;
+            case (gameNumber+25):
+                console.log("Too high, way cold");
+                break;
+            default:
+                console.log("You are way off");
+                break;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
