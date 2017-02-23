@@ -41,11 +41,16 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
-
+            $('#playground1').append(new_h1.text($('.playground_source h1').text()))
+                .append(new_p.text($('.playground_source p').first().text()));
+            $('#playground1').append(new_p.html());
             //playground 2 code
 
             //playground 3 code
         });
+        var new_h1 = $('<h1>');
+        var new_p = $('<p>');
+
     </script>
 </head>
 <body>
