@@ -41,19 +41,74 @@
     <script>
         $(document).ready(function () {
             //playground 1 code
-            $('#playground1').append(new_h1.text($('.playground_source h1').text()))
-                .append(new_p.text($('.playground_source p').first().text()));
-            $('#playground1').append(new_p.html());
+            function createPlay1() {
+                var new_h1 = $('<h1>');
+                var new_p1 = $('<p>');
+                var new_p2 = $('<p>');
+                $('#playground1').append(new_h1.text(
+                    $('.playground_source h1').text()
+                ))
+                    .append(new_p1.text(
+                        $('.playground_source p:first-of-type').text())
+                    )
+                    .append(new_p2.text(
+                        $('.playground_source p:last-of-type').text())
+                    )
+                    .find($('p:last-child')).css('color', 'red');
+            }
+            createPlay1();
             //playground 2 code
-
+            function createPlay2(){
+                var pg2 = $('#playground2');
+                for (var i=1; i<4; i++){
+                    var awesome = $('<div>').addClass('awesome_class');
+                    switch (i){
+                        case 1:
+                            pg2.append(awesome.text(
+                                $('.awesome_class:nth-of-type(1)').text()
+                            ));
+                            break;
+                        case 2:
+                            pg2.append(awesome.text(
+                                $('.awesome_class:nth-of-type(2)').text()
+                            ));
+                            pg2.find('div:last-child')
+                                .attr('id',"my_awesome_div2");
+                            break;
+                        case 3:
+                            pg2.append(awesome.html(
+                                $('.awesome_class:nth-of-type(3)').html()
+                            ));
+                            pg2.find('div:last-child')
+                                .attr({
+                                    id:"my_awesome_div3",
+                                    'data-coolness':'high'
+                                });
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            createPlay2();
             //playground 3 code
+            function createPlay3(){
+                var pg3 = $("#playground3");
+                var ul = $('<ul>').addClass('neato');
+                pg3.append(ul);
+                for (var i=1;i<4;i++){
+                    var li = $('<li>');
+                    pg3.find('.neato').append(li.text(
+                        "Link "+i
+                    ));
+                }
+            }
+            createPlay3();
         });
-        var new_h1 = $('<h1>');
-        var new_p = $('<p>');
-
     </script>
 </head>
 <body>
+<content>
     <!-- ************** Playground 1 ************** -->
 
     <!-- ********** Playground 1 Source ********** -->
@@ -91,7 +146,7 @@
     </div>
 
     <!-- ************** Playground 3 ************** -->
-
+</content>
     <!-- ********** Playground 3 Source ********** -->
     <div class="playground playground_source">
         <ul class="neato">
