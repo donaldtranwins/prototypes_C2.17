@@ -42,10 +42,10 @@
         $(document).ready(function () {
             //playground 1 code
             function createPlay1() {
-                var new_h1 = $('<h1>');
+                var new_h = $('<h1>');
                 var new_p1 = $('<p>');
                 var new_p2 = $('<p>');
-                $('#playground1').append(new_h1.text(
+                $('#playground1').append(new_h.text(
                     $('.playground_source h1').text()
                 ))
                     .append(new_p1.text(
@@ -95,6 +95,7 @@
             function createPlay3(){
                 var pg3 = $("#playground3");
                 var ul = $('<ul>').addClass('neato');
+                var fig = $('<figure>').addClass('awesome_picture');
                 pg3.append(ul);
                 for (var i=1;i<4;i++){
                     var li = $('<li>');
@@ -102,6 +103,10 @@
                         "Link "+i
                     ));
                 }
+                pg3.append(fig);
+                pg3.find('.awesome_picture').html(
+                    $('.playground_source .awesome_picture').html()
+                );
             }
             createPlay3();
         });
