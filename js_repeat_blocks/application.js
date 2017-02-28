@@ -5,28 +5,32 @@ var studentArray = [{name: "Bob", grade: 87}, {name: "Fred", grade: 82}, {name: 
 
 function doFeatureSet1_1() {
     $('#outputDiv').text("Feature Set 1_1 - For loops: Ascending");
-    $('#outputDiv').prepend($('<div>').text("Numbers:  [" + numbers + "]")).append($('<hr>'));
+    $('#outputDiv').append($('<div>').text("Numbers:  [" + numbers + "]"))
+        .append($('<hr>'));
     for (var i = 0; i < numbers.length; i++) {
         $('#outputDiv').append($('<div>').text(numbers[i]));
     }
 }
 function doFeatureSet1_2() {
     $('#outputDiv').text("Feature Set 1_2 - For loops: Descending");
-    $('#outputDiv').prepend($('<div>').text("Numbers:  [" + numbers + "]")).append($('<hr>'));
+    $('#outputDiv').append($('<div>').text("Numbers:  [" + numbers + "]"))
+        .append($('<hr>'));
     for (var i=9; i>-1; i--){
         $('#outputDiv').append($('<div>').text(numbers[i]));
     }
 }
 function doFeatureSet1_3() {
     $('#outputDiv').text("Feature Set 1_3 - For loops: Every Odd");
-    $('#outputDiv').prepend($('<div>').text("Numbers:  [" + numbers + "]")).append($('<hr>'));
+    $('#outputDiv').append($('<div>').text("Numbers:  [" + numbers + "]"))
+        .append($('<hr>'));
     for (var i = 0; i < numbers.length; i+=2) {
         $('#outputDiv').append($('<div>').text(numbers[i])); //technically incorrect, functionally correct
     }
 }
 function doFeatureSet1_4() {
-    $('#outputDiv').text("Feature Set 1_4 - For loops: (Real) Every Odd").append($('<hr>'));
-    $('#outputDiv').prepend($('<div>').text("Mixed Array:  [" + mixedArray + "]"));
+    $('#outputDiv').text("Feature Set 1_4 - For loops: Every Odd (Real)");
+    $('#outputDiv').append($('<div>').text("Mixed Array:  [" + mixedArray + "]"))
+        .append($('<hr>'));
     for (var i = 0; i < mixedArray.length; i++) {
         if (mixedArray[i] % 2 === 1)
             $('#outputDiv').append($('<div>').text(mixedArray[i]));
@@ -34,26 +38,29 @@ function doFeatureSet1_4() {
 }
 function doFeatureSet2_1() {
     $('#outputDiv').text("Feature Set 2_1 - For In loops: Value and Key reference");
-    $('#outputDiv').prepend($('<div>').text("Classroom:  [" + classRoom + "]")).append($('<hr>'));
+    $('#outputDiv').append($('<div>').text("Classroom:  [" + classRoom + "]"))
+        .append($('<hr>'));
     for (aDesk in classRoom) {
             $('#outputDiv').append($('<div>').text(classRoom[aDesk] + " is at " + aDesk));
     }
 }
 function doFeatureSet3_1() {
     $('#outputDiv').text("Feature Set 3_1 - While loops - Objects nested in an Array");
-    $('#outputDiv').prepend($('<div>').text("Student Array:  [" + studentArray + "]")).append($('<hr>'));
+    $('#outputDiv').append($('<div>').text("Student Array:  [" + studentArray + "]"))
+        .append($('<hr>'));
     function findStudent(name){
         var i=0;
         var unfound = true;
         while (unfound && i < studentArray.length){
             var student = studentArray[i];
             if (student.name === name) {
-                $('#outputDiv').append($('<div>').text("Found " + name + " their grade is " + student.grade));
+                $('#outputDiv').append($('<div>').text("Found " + name + ", their grade is " + student.grade + "."));
                 unfound = false;
             }
             i++;
         }
-        if (unfound) $('#outputDiv').append($('<div>').text("Student " + name + " not found."));
+        if (unfound)
+            $('#outputDiv').append($('<div>').text("Student " + name + " was not found."));
     }
     findStudent("George");
     findStudent("Fred");
