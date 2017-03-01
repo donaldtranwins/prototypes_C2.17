@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Reference Data Types</title>
+    <meta name="author" content="Donald J. Tran">
+    <meta name="viewport" content="width=device-width">
+    <script>
+        console.log("===== Feature Set 1 =====");
+        var student_array = ["Josh", "Donald", "Miranda", "Erik", "Sean"];
+        console.log("Third Student: "+student_array[2]);
+        console.log(student_array);
+        console.log(student_array.length);
+        student_array.push("Jinwoo","Joseph");
+        console.log("Pushed 'Jinwoo' and 'Joseph'");
+        console.log(student_array);
+        console.log(student_array.length);
+        console.log("===== Feature Set 2 =====");
+        var student = {};
+        student.firstName = "James";
+        student.lastName = "Bond";
+        student.age = 44;
+        student.school = "MI:6";
+        student.questionList = [];
+        student.hasQuestion = false;
+        student.greeting = function(){
+            return "Hello, my name is "+this.firstName;
+        };
+        student.aboutMe = function(){
+            return "My full name is "+this.firstName+" "+this.lastName+", I am "+this.age+" years old and I am a student at "+this.school+".";
+        };
+        student.askQuestion = function (question){
+            this.questionList.push(question);
+            this.hasQuestion = true;
+            return "A question has been added to your list"
+        };
+        student.answerQuestion = function () {
+            if (this.hasQuestion === true){
+                this.hasQuestion = false;
+                return this.questionList[this.questionList.length-1];
+            }
+            if (this.hasQuestion.length === undefined) {
+                return "You have no pending questions";
+            }
+        };
+        console.log("===== Feature Set 3 =====");
+        console.log("Greeting function: ", student.greeting());
+        console.log("About function: ", student.aboutMe());
+        console.log("Answer Question function: ", student.answerQuestion());
+        console.log("Ask Question function, call 1: ", student.askQuestion("Why are manhole covers round?"));
+        console.log(student.questionList);
+        console.log("Ask Question function, call 2: ", student.askQuestion("What came first, the chicken or the egg?"));
+        console.log(student.questionList);
+        console.log("Ask Question function, call 3: ", student.askQuestion("Didnt dinosaur eggs exist before the chicken? "));
+        console.log(student.questionList);
+        console.log("Answer Question function: ", student.answerQuestion());
+        console.log(student.questionList);
+        console.log("===== Feature Sets Complete =====");
+        console.log("Here is my student object " + student);
+        console.log("Here is my student object", student);
+    </script>
+</head>
+<body>
+</body>
+</html>
