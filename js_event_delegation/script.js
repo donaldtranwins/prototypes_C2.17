@@ -45,17 +45,23 @@ $(document).ready(function() {
 
 $(document).ready(function(){
     var buttonGoogle = $('<button>',{
+        id: "search",
         text: "Google",
-        onclick: "window.open('https://www.google.com')"
+        onclick: "window.open('https://www.google.com')",
+        "data-coolness": "high"
     });
     $('body').append(buttonGoogle);
     $('button').on('click',function(){
-       if ($(this).attr("style")=="margin-top: 10px"){
-           openGoogle(); //calls function in my window scope
-           console.log('CHALLENGE FS triggered!  Button contains \'style="margin-top: 10px"\'')
+       if ($(this).attr("data-coolness")==="high"){
+           openBing(); //calls function in my window scope
        }
     });
 });
-function openGoogle(){
-    window.open("https://www.google.com")
+function openBing(){
+    console.log('CHALLENGE FS triggered!  Button contains \'data-coolness="high"\'');
+    $('#search').attr("onclick","console.log('no more google')");
+    window.open("https://www.bing.com");
+    //yes this opens two windows on first click.
+    // the buttons "onclick" attr happens first,
+    // before this function can override its values
 }
