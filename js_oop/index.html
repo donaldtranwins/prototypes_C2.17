@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript OOP Prototype</title>
+    <meta name="author" content="Donald J. Tran">
+    <script>
+        function CoinStack(starting_amount){
+            this.value = starting_amount;
+            this.addCoins = function(amount){
+                this.value += amount;
+            };
+            this.removeCoins = function(amount){
+                if (this.value >= amount){
+                    this.value -= amount;
+                    return amount;
+                }
+                amount = this.value;
+                this.value = 0;
+                return amount;
+            };
+            this.valueOf = function(who){
+                if (!who) who = "My";
+                console.log(who+" coin stack contains "+this.value+' coins');
+            };
+        }
+        var myCoinStack = new CoinStack(50);
+        myCoinStack.valueOf();
+        myCoinStack.addCoins(15);
+        myCoinStack.valueOf();
+        myCoinStack.removeCoins(37);
+        myCoinStack.valueOf();
+        myCoinStack.removeCoins(55);
+        myCoinStack.valueOf();
+
+        CoinStack.prototype.takeCoinsFrom = function(from,amount){
+            this.addCoins(from.removeCoins(amount));
+        };
+        var dansCoins = new CoinStack(50);
+        var ericsCoins = new CoinStack(50);
+        dansCoins.valueOf("Dan's");
+        ericsCoins.valueOf("Eric's");
+        ericsCoins.takeCoinsFrom(dansCoins,30);
+        dansCoins.valueOf("Dan's");
+        ericsCoins.valueOf("Eric's");
+        dansCoins.takeCoinsFrom(ericsCoins,120);
+        dansCoins.valueOf("Dan's");
+        ericsCoins.valueOf("Eric's");
+    </script>
+</head>
+<body>
+<h1>Javascript OOP Prototype</h1>
+</body>
+</html>
