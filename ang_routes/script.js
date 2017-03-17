@@ -12,11 +12,11 @@
 // Create the controllers for the different pages below
 
 // home page controller
-    // Create a message to display in the view
+    // Create a message to updateDisplay in the view
 
 
 // about page controller
-    // Create a message to display in the view
+    // Create a message to updateDisplay in the view
 
 // contact page controller
-    // Create a message to display in the view
+    // Create a message to updateDisplay in the view

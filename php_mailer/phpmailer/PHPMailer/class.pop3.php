@@ -59,7 +59,7 @@ class POP3
     public $CRLF = "\r\n";
 
     /**
-     * Debug display level.
+     * Debug updateDisplay level.
      * Options: 0 = no, 1+ = yes
      * @type integer
      * @access public
@@ -361,7 +361,7 @@ class POP3
 
     /**
      * Add an error to the internal error store.
-     * Also display debug output if it's enabled.
+     * Also updateDisplay debug output if it's enabled.
      * @param $error
      */
     private function setError($error)
