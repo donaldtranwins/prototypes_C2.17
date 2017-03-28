@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <title>Angular Intro</title>
     <!-- Add Angular CDN below -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 </head>
-<body>
-
+<body ng-app>
+<div ng-init="myVar='string'">
+    {{ myVar }}
+</div>
+<div ng-init="carArray=['TSX','WRX STI','BRZ','FRS']">
+    <ul>
+        <li ng-repeat="cars in carArray">{{ cars }}</li>
+    </ul>
+</div>
+<div>
+    <input type="text" ng-model="myInput">
+    <p>{{ myInput }}</p>
+</div>
 </body>
 </html>
