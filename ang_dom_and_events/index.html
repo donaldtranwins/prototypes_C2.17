@@ -15,32 +15,36 @@
     <div class="form-group form-group-sm col-xs-12 col-md-3">
         <div class="input-group input-group-sm form-group">
             <span class="input-group-addon"> First Name</span>
-            <input ng-model="fc.form.fname" ng-disabled="fc.disableTextArea(fc.getElementLength(fc.form.fname))" type="text" class="form-control input-sm">
+            <input ng-model="fc.form.fname" ng-disabled="fc.disableInput(fc.getRemainingChars(fc.form.fname))" type="text" class="form-control input-sm">
             <div class="input-group-btn">
-                <span class="btn badge">{{ fc.getElementLength(fc.form.fname) }}</span></span>
+                <span class="btn label label-{{ fc.getRemainingChars(fc.form.fname) > 6 ? 'success' :
+                fc.getRemainingChars(fc.form.fname) > 0 ? 'warning' : 'danger' }}">{{ fc.getRemainingChars(fc.form.fname) }}</span></span>
             </div>
         </div>
         <div class="input-group input-group-sm form-group">
             <span class="input-group-addon"> Last Name</span>
-            <input ng-model="fc.form.lname" ng-disabled="fc.disableTextArea(fc.getElementLength(fc.form.lname))" type="text" class="form-control input-sm">
+            <input ng-model="fc.form.lname" ng-disabled="fc.disableInput(fc.getRemainingChars(fc.form.lname))" type="text" class="form-control input-sm">
             <div class="input-group-btn">
-                <span class="btn badge">{{ fc.getElementLength(fc.form.lname) }}</span></span>
+                <span class="btn label label-{{ fc.getRemainingChars(fc.form.lname) > 6 ? 'success' :
+                fc.getRemainingChars(fc.form.lname) > 0 ? 'warning' : 'danger' }}">{{ fc.getRemainingChars(fc.form.lname) }}</span></span>
             </div>
         </div>
         <div class="input-group input-group-sm form-group">
             <span class="input-group-addon bg-info"> Profession</span>
-            <input ng-model="fc.form.profession" ng-disabled="fc.disableTextArea(fc.getElementLength(fc.form.profession))" type="text" class="form-control input-sm">
+            <input ng-model="fc.form.profession" ng-disabled="fc.disableInput(fc.getRemainingChars(fc.form.profession))" type="text" class="form-control input-sm">
             <div class="input-group-btn">
-                <span class="btn badge">{{ fc.getElementLength(fc.form.profession) }}</span></span>
+                <span class="btn label label-{{ fc.getRemainingChars(fc.form.profession) > 6 ? 'success' :
+                fc.getRemainingChars(fc.form.profession) > 0 ? 'warning' : 'danger' }}">{{ fc.getRemainingChars(fc.form.profession) }}</span></span>
             </div>
         </div>
         <div class="input-group input-group-sm form-group">
             <span class="input-group-addon"> Companions</span>
-            <textarea ng-model="fc.form.companions" ng-disabled="fc.disableTextArea(lettersRemaining)" class="form-control" rows="2"></textarea>
+            <textarea ng-model="fc.form.companions" ng-disabled="fc.disableInput(charsRemaining)" class="form-control" rows="2"></textarea>
         </div>
         <button ng-click="fc.add()" class="btn btn-primary btn-sm">Add</button>
         <button ng-click="fc.clear()" class="btn btn-primary btn-sm">Clear</button><span class="help-block pull-right">
-        <span class="badge" ng-model="lettersRemaining = fc.getCompanionsLength()">{{ lettersRemaining }}</span></span><br><br>
+        <span class="label label-{{ charsRemaining > 10 ? 'success' :
+                charsRemaining > 0 ? 'warning' : 'danger' }}" ng-model="charsRemaining = fc.getCompanionsLength()">{{ charsRemaining }}</span></span><br><br>
         <div class="alert alert-{{ fc.index % 3 == 0 ? 'info' : fc.index % 3 == 1 ? 'warning' : 'danger' }}" ng-show="fc.submitted">
             <strong>{{ fc.submitted }}</strong> was added
         </div>
@@ -98,7 +102,7 @@
             this.form.companions = '';
             this.index = this.formArray.length-1;
         };
-        this.getElementLength = function(element){
+        this.getRemainingChars = function(element){
             if (element == undefined || element.length == 0){
                 return '';
             }
@@ -115,8 +119,8 @@
             this.form.companions = '';
             this.submitted = '';
         };
-        this.disableTextArea = function(lettersRemaining){
-            if (lettersRemaining === 0){
+        this.disableInput = function(charsRemaining){
+            if (charsRemaining === 0){
                 return true;
             } else {
                 return false;
