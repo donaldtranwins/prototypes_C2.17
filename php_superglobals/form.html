@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="index.php" method="get">
+    <input type="text" name="name" id="get_name">
+    <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <button type="submit">GET</button>
+</form>
+<hr>
+<form action="index.php" method="post">
+    <input type="text" name="name" id="post_name">
+    <select name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <input type="text" name="fav_fruit[]" placeholder="favorite fruit">
+    <button type="submit">POST</button>
+</form>
+
+</body>
+</html>
