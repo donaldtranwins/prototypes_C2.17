@@ -10,7 +10,9 @@
             <button type="button" onclick="ajax()">POST</button>
             Success: <input name="timestamp" disabled>
         </form>
-        <div id="output"></div>
+        <div id="output">
+
+        </div>
     </pre>
     <script>
         var success = null;
@@ -45,7 +47,7 @@
                     console.log('success: ', response);
                     $(':text').val('SUCCESS');
                     $(':disabled').val(response.time.timestamp);
-                    $('#output').html(div);
+                    $('#output').text(div);
                 },
                 error: function(response){
                     $('input:lt(2)').val('FAILED');
