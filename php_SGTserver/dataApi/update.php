@@ -5,7 +5,7 @@ $id = $_POST['id'];
 
 $updateFields = [
     'student'=>'name',
-    'course'=>'course_name',
+    'class'=>'course',
     'score'=>'grade'
 ];
 

@@ -11,7 +11,7 @@ if (empty($result)){
 } else {
 //else:
     //check if any data came back
-    if (mysqli_num_rows($result) > 10){
+    if (mysqli_num_rows($result) > 0){
         //if it did, change output success to true
         $output['success'] = true;
         $output['data']=[];

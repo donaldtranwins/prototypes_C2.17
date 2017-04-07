@@ -14,10 +14,10 @@ $output = [
 ];
 
 switch($action){
-    case 'readAll':
+    case 'get':
         include 'dataApi/read.php';
         break;
-    case 'insert':
+    case 'create':
         include 'dataApi/insert.php';
         break;
     case 'delete':
