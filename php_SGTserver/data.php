@@ -27,6 +27,8 @@ switch($action){
         include 'dataApi/update.php';
         break;
 }
+mysqli_close($conn);
+
 //custom added line to not output an errors property if there are no errors and our success is true
 if(empty($output['errors']) && $output['success'] === true) {
     unset($output['errors']);
