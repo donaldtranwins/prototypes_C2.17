@@ -19,22 +19,19 @@
         let fs1c = item => item.match(/st[ia]r/g);
         console.log('FS1c: ',fs1cTest.map(fs1c));
 
-        const fs2pass = [ '818 555 1212', '818-555-1212',
-            '1818 555 1212', '1818-555-1212', '1 818 555 1212',
-            '1-818-555-1212', '(818) 555-1212', '8185551212',
-            '818      555      1212', '818 555-1212', '18185551212' ];
-        const fs2fail = [ '818555121', '818?5551212',
-            '8185-55-1212', '555-1212' ];
+        const fs2_pass = [ '818 555 1212', '818-555-1212', '1818 555 1212', '1818-555-1212', '1 818 555 1212',
+            '1-818-555-1212', '(818) 555-1212', '8185551212', '818      555      1212', '818 555-1212', '18185551212' ];
+        const fs2_fail = [ '818555121', '818?5551212', '8185-55-1212', '555-1212' ];
         let phoneNumber = item => item.match(/1? *[-|(]? *\d{3}[)|-]? *\d{3}-? *\d{4}/);
-        console.log(`FS2 Pass: ${fs2pass.every(phoneNumber)}`); //returns: true
-        console.log(`FS2 Fail: ${!fs2fail.every(phoneNumber)}`); //returns: !false
+        console.log(`FS2 Pass: ${fs2_pass.every(phoneNumber)}`); //returns: true
+        console.log(`FS2 Fail: ${!fs2_fail.every(phoneNumber)}`); //returns: !false
 
-        const fs3pass = [ 'helloDude3', 'Pa5sWoRd', 'thisIsaReallyL0NGpassword' ];
-        const fs3fail = [ 'short', 'nocapsbutanumber1', '5tartsWithANumber', 'ALLCAPSBUT4NUMBER', 'ill#g@l_characters',
+        const fs3_pass = [ 'helloDude3', 'Pa5sWoRd', 'thisIsaReallyL0NGpassword' ];
+        const fs3_fail = [ 'short', 'nocapsbutanumber1', '5tartsWithANumber', 'ALLCAPSBUT4NUMBER', 'ill#g@l_characters',
             'toDamnManyLettersForThisToBeAValidP4sswordYouKnowIt', 'ZEROONE1234567$$$$$$twelvethirty' ];
         let passwordRegex = item => item.match(/^[A-Za-z](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[ -/])(?!.*[:-@])(?!.*[[-`]).{5,31}$/g);
-        console.log(`FS2 Pass: ${fs3pass.every(passwordRegex)}`); //returns: true
-        console.log(`FS2 Fail: ${!fs3fail.every(passwordRegex)}`); //returns: true
+        console.log(`FS2 Pass: ${fs3_pass.every(passwordRegex)}`); //returns: true
+        console.log(`FS2 Fail: ${!fs3_fail.every(passwordRegex)}`); //returns: !false
     </script>
 </head>
 <body>
