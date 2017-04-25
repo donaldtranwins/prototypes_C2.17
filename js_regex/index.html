@@ -30,9 +30,9 @@
         console.log(`FS2 Fail: ${!fs2fail.every(phoneNumber)}`); //returns: !false
 
         const fs3pass = [ 'helloDude3', 'Pa5sWoRd', 'thisIsaReallyL0NGpassword' ];
-        const fs3fail = [ 'short', 'nocapsbutanumber1', '5tartsWithANumber', 'ALLCAPSBUT4NUMBER',
-            'toDamnManyLettersForThisToBeAValidP4sswordYouKnowIt', 'ill#g@l_characters' ];
-        let passwordRegex = item => item.match(/^([A-Za-z])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{5,31}$/);
+        const fs3fail = [ 'short', 'nocapsbutanumber1', '5tartsWithANumber', 'ALLCAPSBUT4NUMBER', 'ill#g@l_characters',
+            'toDamnManyLettersForThisToBeAValidP4sswordYouKnowIt', 'ZEROONE1234567$$$$$$twelvethirty' ];
+        let passwordRegex = item => item.match(/^[A-Za-z](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[ -/])(?!.*[:-@])(?!.*[[-`]).{5,31}$/g);
         console.log(`FS2 Pass: ${fs3pass.every(passwordRegex)}`); //returns: true
         console.log(`FS2 Fail: ${!fs3fail.every(passwordRegex)}`); //returns: true
     </script>
